@@ -1,11 +1,12 @@
 import { ChevronDownIcon } from "@heroicons/react/outline";
-import { useSession } from "next-auth/react"
+import { signOut, useSession } from "next-auth/react"
 import { useEffect, useState } from "react";
 import { shuffle } from "lodash";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { playlistState, playlistIdState } from "../atoms/playlistAtom";
 import spotifyApi from "../lib/spotify";
 import useSpotify from "./hooks/useSpotify";
+import Songs from "../components/Songs";
 
 
 const colors = [
@@ -37,9 +38,9 @@ function Center() {
 
 
   return (
-    <div className="flex-grow text-white">
+    <div className="flex-grow h-screen  overflow-y-scroll scrollbar-hide text-white">
       <header className=" bg-transparent absolute top-5 right-8">
-        <div className="flex items-center bg-black space-x-3 opacity-90 hover:opacity-80 justify-end cursor-pointer rounded-full p-1 pr-2 text-white ">
+        <div className="flex  items-center bg-black space-x-3 opacity-90 hover:opacity-80 justify-end cursor-pointer rounded-full p-1 pr-2 text-white " onClick={signOut}>
 
           <img className=" rounded-full w-190 h-10" src={session?.user.image} alt=""/>
           <h2>{session?.user.name}</h2>
@@ -55,7 +56,7 @@ function Center() {
 
       </section>
       <div>
-        
+        <Songs/>
       </div>
     </div>
   )

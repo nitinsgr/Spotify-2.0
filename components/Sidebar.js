@@ -18,7 +18,7 @@ function Sidebar() {
    const [playlists, setPlayList] = useState([]);
    const [playlistId, setPlayListId] = useRecoilState(playlistIdState);
 
-   // console.log(playlistId);
+   console.log(playlistId);
 
 
    useEffect(()=> {
@@ -33,12 +33,6 @@ function Sidebar() {
   return (
     <div className="text-gray-500 p-5 text-xs border-r lg:text-sm  border-opacity-0 hidden md:inline-flex overflow-y-scroll h-screen scrollbar-hide sm:max-w-[12rem] lg:max-w-[15rem]">
         <div className="space-y-4  ">
-        <button className="flex items-center space-x-2 hover:text-white"
-        onClick={()=> signOut()}
-        >
-             <HomeIcon className=" h-5 w-5"/>
-             <p>Log out</p>
-          </button>
           <button className="flex items-center space-x-2 hover:text-white">
              <HomeIcon className=" h-5 w-5"/>
              <p>Home</p>
